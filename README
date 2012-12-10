@@ -63,10 +63,11 @@ This is also the primary source for information/support.
 
 See Also:
 
-INSTALL:   install instructions and solutions to common problems
+INSTALL:   Installation instructions and solutions to common problems
 COPYING:   The LGPL license
-PORTING:   hints for people trying to port rxtx
-Authors:   who wrote what.
+PORTING:   Hints for people trying to port rxtx
+AUTHORS:   Who wrote what?
+ChangeLog: When was it written?
 
 The rxtx project was started by
 Trent Jarvi <taj -at- www.linux.org.uk>
