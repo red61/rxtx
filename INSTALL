@@ -55,7 +55,6 @@
 |   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 |   All trademarks belong to their respective owners.
 --------------------------------------------------------------------------*/
-This is the INSTALL file for RXTX.  Thu Nov 27 18:32:26 CET 2008
 
 If, while following the instructions, you find this file unclear or incorrect 
 please create an issue at http://github.com/rxtx/rxtx .
@@ -123,45 +122,6 @@ A.  Japanese
 	We will gladly include instructions in any language provided.  Tencho 
 	was the first to contribute instructions in another language.
 
-2.  BUILDING COMMAPI SUPPORT
-
-	The following is concerned with building and installing commapi 
-	support with Sun's CommAPI package.  A full stand alone version of 
-	rxtx is in the CVS archive for interested developers.
-
-	A.  Quick Install
-
-	The following packages are used to build rxtx:
-
-		autoconf-2.59
-		automake-1.9.5
-		libtool-1.5.18
-		gnu make-3.79.1         On some systems like FreeBSD this is
-					called gmake
-		jdk 1.3 or newer	
-
-	With the packages installed, proceed to build and install rxtx.
-
-		$ tar -xzvf rxtx-2.1.tar.gz
-		$ cd rxtx-2.1
-		$ ./configure  (follow the instructions)
-		$ make install (gmake if your system uses that convention)
-		Read "R.  How can I use Lock Files with rxtx?"
-
-	One catch that has showed up... you cannot have spaces in the path.
-	for instance:  /home/jarvi/test build/rxtx/... will cause problems.
-                                   ----^
-	If that does not work or you do not want a script messing with the 
-	system, read on..
-
-	B.  Uninstalling Sun's comm.jar
-
-		Sun's comm.jar is not required.  It is a valid option on
-		some platforms.  IT WILL CREATE CHAOS if you have it installed
-		while trying to build rxtx 2.1.
-
-		http://java.sun.com/products/javacomm/index.html
-		
 	C.  Installing javax.comm.properties.
 
 		javax.comm.properties is not currently required by rxtx-2.1
@@ -181,43 +141,6 @@ A.  Japanese
 		jdk-1.2 and newer:
 
 			No changes are needed.
-
-	E.  Build and Install the jar.
-
-		configure       configure supports build directories.
-				configure requires javac in its path or
-				JAVA_HOME set to grab some java system
-				properties.
-		make    	to build RXTXcomm.jar and the libraries
-		make install 	to place the jar and libraries in the correct 
-				location
-
-		You may select the JDK you wish to build with using $JAVA_HOME
-		For example:
-			export JAVA_HOME=/usr/local/java
-		Otherwise, configure grabs the JDK from your PATH.
-
-	F.  Where did everything end up?
-
-		Lets assume the top java directory is /usr/local/java
-
-		jdk-1.2 the files go in
-		
-			/usr/local/java/jre/lib/ext/RXTXcomm.jar
-			/usr/local/java/jre/lib/$(ARCH)/librxtxSerial.so.
-			/usr/local/java/jre/lib/$(ARCH)/librxtxParallel.so.
-			/usr/local/java/jre/lib/$(ARCH)/lib/...
-
-		jdk-1.1.* the files go in 
-
-			/usr/local/java/lib/RXTXcomm.jar
-			/usr/lib/librxtxSerial.so.
-			/usr/lib/librxtxParallel.so.
-			/usr/lib/...
-
-			The librxtxSerial.so librxtxParallel.so are placed in 
-			/usr/lib so people don't have to change with their 
-			LD_LIBRARY_PATH.
 
 	G.  Compiling for Win32 support
 
@@ -293,72 +216,7 @@ A.  Japanese
 		cd src
 		make -f ..\Makefile.lcc
 
-		----------------- cross-compiling from Linux -----------------
-
-		Grab ming32:
-
-		Wayne Roberts contributed the version used by the maintainer.
-		(Wayne is largely responsible for bringing rxtx back to win32.)
-		http://www.linuxgrrls.org/~taj/crossmingw32-2.95-1.i386.rpm
-		A more current version can be obtained:
-		http://www.devolution.com/~slouken/SDL/Xmingw32/crossgcc/index.html
-		prebuilt Binaries:
-		http://www.devolution.com/~slouken/SDL/Xmingw32/mingw32-linux-x86-glibc-2.1.tar.gz
-
-		I built the dll with jdk-1.2.2 for linux using jdk-1.2.2 
-		include files from the win32 JDK.
-
-		Make sure that ming32 bin dir is the first in your path (at 
-		least before /usr/bin/gcc)
-
-			$ export PATH=" \
-				/usr/local/cross-tools/i386-mingw32/bin/: \
-				$PATH:/usr/X11R6/bin:/usr/local/java/bin: \
-				/usr/local/java/jre/bin/:"
-
-		Place Sun jdk 1.2.2 win32 include files in a known location.
-
-			$ mkdir /home/jarvi/win32java
-			$ cp -r /mnt/win98//java/include /home/jarvi/win32java
-
-			If you are developing win32 support you may want to
-			export the location to make the config script
-			non interactive
-
-			$ export WIN32INCLUDE=/home/jarvi/tools/win32-include
-
-		run configure to generate a Makefile
-
-			$ cd /home/jarvi/rxtx-*
-			$ mkdir build
-			$ cd build
-			$ ../configure --target=i386-mingw32  \
-				--host=i386-redhat-linux
-
-		build the class files and dll.
-
-			$ make
-
-		the files will be located in
-
-			rxtx-*/build/...
-
-		If you're looking at rxtx as an example of cross-compiling you 
-		may be interested in looking at the examples provided at:
-
-			ftp.xraylith.wisc.edu
-			/pub/khan/gnu-win32/mingw32/misc/java-jni-examples.zip
-
 3.  COMMON PROBLEMS
-
-A.  I get java.lang.UnsatisfiedLinkError: nSetOwner while loading driver
-    gnu.io.RXTXCommDriver when using rxtx.
-
-	SetOwner appears to be some win32 call.
-	Do not use Sun's win32 CommAPI files.  Get the Solaris version.
-	"javacomm20-x86.tar.Z" and rxtx-1.4 if you want Sun's solution.
-
-	See Also: 2-B.  Installing Sun's comm.jar (IE its not needed at all)
 
 B.  Exception in thread "main" java.lang.UnsatisfiedLinkError: no rxtxSerial in 
     java.library.path
@@ -423,22 +281,6 @@ D.  java.lang.NoClassDefFoundError: gnu/io/CommPort
 	$ java BlackBoxException in thread "main"
 	java.lang.NoClassDefFoundError: gnu/io/CommPort
 
-E.  The Compiler Cannot Find Java Include Files
-
-	Check to top of the Makefile to make sure we agree on the location of
-	the include files that came with the jdk.  Specifically:
-
-	JAVAINCLUDE =  -I /usr/local/java/include/
-	JAVANATINC =  -I /usr/local/java/include/genunix
-	also check the classpath
-	CLASSPATH = ...
-
-F. Configure says 'unterminated sed command' and stops 
-
-	Unterminated sed command errors usually result from `find` producing 
-	unexpected results.   If you are unsure remove all comm.jar and 
-	configure to place in in the correct place. 
-
 G.  Java Can Not Find libstdc++-libc6.0-1.so.2 
 
 	jdk-1.2 on redhat systems may note that Java complains about not being
@@ -448,19 +290,6 @@ G.  Java Can Not Find libstdc++-libc6.0-1.so.2
 	ln -s /usr/lib/libstdc++ /usr/lib/libstdc++-libc6.0-1.so.2
 	ls -l /usr/lib/libstdc++-libc6.0-1.so.2
  	/usr/lib/libstdc++-libc6.0-1.so.2 -> libstdc++.so.2.8.0
-
-H.  BlackBox Can Not Handle all the ports!
-
-	BlackBox has a hard coded limit in BlackBox.java that prevents it from 
-	running if you don't specify a port.  We are considering alternative 
-	ways of handling the large number of port names in Unix.  The line in 
-	question
-
-	is:
-
-		portDisp = new SerialPortDisplay[50];
-		
-	just change 50 to say 256.
 
 I.  Illegal use of nonvirtal function call!
 
@@ -492,26 +321,6 @@ J.  My libc5 Linux system is generating SIGSEGV
 	libraries.  SIGSEGV was the most common symptom.  Reported by  Peter 
 	Bennett <bencom@bencom.co.nz>
 
-K.  AM_PROG_LIBTOOL not found in library
-
-	cd. && aclocal
-	aclocal:configure.in: 23: macro 'AM_PROG_LIBTOOL' not found in library
-	make:***[aclocal.m4]Error 1
-
-	If you're positive things are setup right you may try the autogen.sh 
-	script to try regenerating the scripts with your tools.
-
-L.  Problems with RMISecurityManager()
-
-	Please see the file RMISecurityManager.html 
-
-M.  Which Wires Should be Connected?
-
-	With the DB25 use 2 (TX), 3 (RX) and 7 (GD) to connect to the device.
-	With the DB9  use 2 (RX), 3 (TX) and 5 (GD) to connect to the device.
-
-	You will need to hook up more than that for hardware flow control.
-
 N.  Which Device Should be Used?
 
 	Linux serial ports should use /dev/ttyS?
@@ -523,36 +332,6 @@ N.  Which Device Should be Used?
 	HP-UX uses tty0p? tty1p?
 	BeOS uses /dev/ports/serial?
 	Win32 uses COM?
-  
-O.  It Did Not Work! 
-
-	There are sure to be bugs.  The goal is to make the install as painless
-	as possible.  Send back comments if something could be easier.
-
-	If you run into a problem building the rxtx package please include the
-	output generated by the following script.
-
-        ---------------clip-----------------
-#!/bin/sh
-which java
-java -version
-uname -a
-autoconf --version
-automake --version
-libtool --version
-make --version
-        ---------------clip-----------------
-
-	Here's what's on my system for comparison.  Older make is known to cause
-	problems.
-
-		java 1.4
-		autoconf-2.53
-		automake-1.6.3
-		libtool-1.4.2
-		gnu make-3.79.1  
-
-	mail any bugs to taj@www.linux.org.uk.
 
 P.  Which jdk should be used? 
 
@@ -700,20 +479,6 @@ reserved for 'stable' releases.
 PATCH is used to differentiate incremental releases of the MINOR releases.
 
 CommPortIdentifier is expected to support getVersion() in the RXTX-1.5 series.
-
-T.  What Type of Latency can I expect with RXTX
-
-	frantz <fcapiez@club-internet.fr> put RXTX under a scope and found
-	the following:
-
-	RXTX currently has a latency of 150-200ms on a PII at 450mhz.
-	The latency can be reduced to 70-80ms by reducing the usleep()
-	value in SerialImp.c:eventLoop() to usleep(5000)).
-
-	Much lower latencies should be possible but the maintainer does not
-	have equipment to test changes.
-
-	He is going to look at this further.  He needs 20 ms or less latency.
 	
 U.  I got rxtx working on a new OS but I can't read from the port
 
@@ -854,9 +619,3 @@ taj@www.linux.org.uk
 You made it this far.. what is one more line.
 
 Sun, Solaris and Java are registered trademarks of Sun Microsystems, Inc.
-
-
-reminder:
-
-redhat 7.1 needs:
-export LD_ASSUME_KERNEL=2.2.5
