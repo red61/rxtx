@@ -58,22 +58,7 @@
 This is the INSTALL file for RXTX.  Thu Nov 27 18:32:26 CET 2008
 
 If, while following the instructions, you find this file unclear or incorrect 
-please make a note and email the details to taj@www.linux.org.uk.
-
-A note about rxtx 2.1 and later:
-
-rxtx 2.1 replaces the entire CommAPI.  Every effort is made to conform to
-CommAPI but out of respect for our friends at Sun the package name of 2.1 has
-been moved to gnu.io.  A script is offered in contrib/ChangePackage.sh that
-will switch source tree's between javax.comm and gnu.io.
-
-See Sun's CommAPI license for more details on why this decision was made.
-
-If you would like to use javax.comm, use rxtx 1.4 with Sun's CommAPI.
-
-A note on Mac OS X:
-
-	Go to the README.OSX file for install instructions. 
+please create an issue at http://github.com/rxtx/rxtx .
 
 1.  INSTALL INSTRUCTIONS IN OTHER LANGUAGES
 
