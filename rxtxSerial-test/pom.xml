@@ -3,7 +3,6 @@
     <groupId>gnu.io.rxtx</groupId>
     <artifactId>rxtxSerial-test</artifactId>
     <packaging>jar</packaging>
-    <version>2.2-stabilize-SNAPSHOT</version>
     <name>rxtxSerial integration tests</name>
     <url>http://rxtx.qbang.org</url>
     <parent>    

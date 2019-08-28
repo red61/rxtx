@@ -19,17 +19,17 @@
             <dependency>
                 <groupId>gnu.io.rxtx</groupId>
                 <artifactId>rxtx-api</artifactId>
-                <version>2.2-stabilize-SNAPSHOT</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>gnu.io.rxtx</groupId>
                 <artifactId>rxtxSerial-java</artifactId>
-                <version>2.2-stabilize-SNAPSHOT</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>gnu.io.rxtx</groupId>
                 <artifactId>rxtxSerial</artifactId>
-                <version>2.2-stabilize-SNAPSHOT</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>junit</groupId>
@@ -40,7 +40,7 @@
             <dependency>
                 <groupId>gnu.io.rxtx</groupId>
                 <artifactId>rxtxSerial-native</artifactId>
-                <version>2.2-stabilize-SNAPSHOT</version>
+                <version>${project.version}</version>
                 <scope>compile</scope>
                 <classifier>sources</classifier>
                 <type>zip</type>
@@ -48,7 +48,7 @@
             <dependency>
                 <groupId>gnu.io.rxtx</groupId>
                 <artifactId>cross-toolchain-wrapper</artifactId>
-                <version>2.2-stabilize-SNAPSHOT</version>
+                <version>${project.version}</version>
                 <scope>compile</scope>
                 <classifier>sources</classifier>
                 <type>zip</type>
@@ -56,42 +56,42 @@
             <dependency>
                 <groupId>gnu.io.rxtx</groupId>
                 <artifactId>librxtxSerial-linux-x86</artifactId>
-                <version>2.2-stabilize-SNAPSHOT</version>
+                <version>${project.version}</version>
                 <type>so</type>
             </dependency>
             <dependency>
                 <groupId>gnu.io.rxtx</groupId>
                 <artifactId>librxtxSerial-linux-x86_64</artifactId>
-                <version>2.2-stabilize-SNAPSHOT</version>
+                <version>${project.version}</version>
                 <type>so</type>
             </dependency>
             <dependency>
                 <groupId>gnu.io.rxtx</groupId>
                 <artifactId>rxtxSerial-windows-x86</artifactId>
-                <version>2.2-stabilize-SNAPSHOT</version>
+                <version>${project.version}</version>
                 <type>dll</type>
             </dependency>
             <dependency>
                 <groupId>gnu.io.rxtx</groupId>
                 <artifactId>rxtxSerial-windows-x86_64</artifactId>
-                <version>2.2-stabilize-SNAPSHOT</version>
+                <version>${project.version}</version>
                 <type>dll</type>
             </dependency>
             <dependency>
                 <groupId>gnu.io.rxtx</groupId>
                 <artifactId>librxtxSerial-osx-x86_64</artifactId>
-                <version>2.2-stabilize-SNAPSHOT</version>
+                <version>${project.version}</version>
                 <type>jnilib</type>
             </dependency>
             <dependency>
                 <groupId>gnu.io.rxtx</groupId>
                 <artifactId>rxtxSerial-bin</artifactId>
-                <version>2.2-stabilize-SNAPSHOT</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>gnu.io.rxtx</groupId>
                 <artifactId>rxtxSerial-test</artifactId>
-                <version>2.2-stabilize-SNAPSHOT</version>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

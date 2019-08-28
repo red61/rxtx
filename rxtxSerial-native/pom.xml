@@ -3,7 +3,6 @@
     <groupId>gnu.io.rxtx</groupId>
     <artifactId>rxtxSerial-native</artifactId>
     <packaging>pom</packaging>
-    <version>2.2-stabilize-SNAPSHOT</version>
     <name>rxtxSerial native</name>
     <url>http://rxtx.qbang.org</url>
     <parent>    
