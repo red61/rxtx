@@ -17,7 +17,6 @@
             <activation>
                 <os>
                     <family>unix</family>
-                    <arch>i386</arch>
                 </os>
             </activation>
             <properties>
@@ -27,28 +26,6 @@
     </profiles>
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>enforce-os</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <requireOS>
-                                    <family>unix</family>
-                                    <arch>i386</arch>
-                                    <message>Sorry, the rxtx binary for the unix/x86 platform can be build on the following systems only: * unix/x86 If you know about a working cross-platform build procedure for other platforms, please bring this up at the rxtx mailing list.</message>
-                                </requireOS>
-                            </rules>  
-                            <fail>true</fail>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -98,9 +75,10 @@
                         <compilerStartOption>-DHAVE_STDINT_H</compilerStartOption>
                         <compilerStartOption>-DHAVE_SYS_FCNTL_H</compilerStartOption>
                         <compilerStartOption>-DHAVE_SYS_SIGNAL_H</compilerStartOption>
+                        <compilerStartOption>-m32</compilerStartOption>
                     </compilerStartOptions>
                     <linkerStartOptions>
-                        <linkerStartOption>-shared</linkerStartOption>
+                        <linkerStartOption>-shared -m32</linkerStartOption>
                     </linkerStartOptions>
                     <sources>
                         <source>
