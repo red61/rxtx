@@ -8,6 +8,12 @@
     <name>RXTX parent POM</name>
     <url>http://rxtx.qbang.org</url>
     <scm><developerConnection>scm:git:git@gitlab.red61.com:red61/rxtx.git</developerConnection><tag>HEAD</tag></scm>
+            <repositories>
+                <repository>
+                        <id>red61</id>
+                        <url>http://nexus.red61.com/nexus/content/repositories/thirdparty/</url>
+                </repository>
+        </repositories>
     <dependencyManagement>
         <dependencies>
             <dependency>
